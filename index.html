@@ -17,11 +17,15 @@
   <!--Create component to take control of the "app" id in the div above -->
     <script type="text/babel">
        class App extends React.Component {
+           state = {
+               name: 'Rose',
+               age: 14
+           }
            render() {
                return (
                    <div className="app-content">
                    <h1>Hey, ninjas</h1>
-                   <p>{ Math.random() * 10 }</p> 
+                   <p>My name is: { this.state.name  } and I am { this.state.age }</p> 
                    </div>
                    )
            }
