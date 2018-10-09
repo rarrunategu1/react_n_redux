@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import AboutRose from './AboutRose';
 
 
 class App extends Component {
@@ -8,6 +8,7 @@ class App extends Component {
       <div className="App">
         <h1>My React app!</h1>
         <p>Welcome</p>
+        <AboutRose />
       </div>
     );
   }
