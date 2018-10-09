@@ -7,7 +7,7 @@ class App extends Component {
     about: [
       {name: 'Rose', age: 45, planet: 'Mars', id: 1},
       {name: 'Jane', age: 56, planet: 'Jupiter', id: 2},
-      {name: 'Joe', age: 25, planet: 'Saturn', id: 3}
+      {name: 'Joe', age: 19, planet: 'Saturn', id: 3}
       ]
   }
   render() {
