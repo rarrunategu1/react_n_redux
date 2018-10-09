@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class AboutRose extends Component{
-    render(){
-        const {about} = this.props; //this is destructuring which stores each one in a variable called name, age and planet and now the code below is reusable
-        const aboutList = about.map(about =>{
+const AboutRose = ({about}) => { //destructuring is happening directly in the brackets
+const aboutList = about.map(about =>{
             return (
             <div className="about" key={about.id}>
             <div>Name: {about.name}</div>
@@ -18,7 +16,7 @@ class AboutRose extends Component{
             {aboutList}
             </div>
             );
-    }
-}
+    };
+
 
 export default AboutRose;
