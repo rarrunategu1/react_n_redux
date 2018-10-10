@@ -1,4 +1,5 @@
 import React from 'react';
+import './People.css';
 
 const AboutRose = ({about, deletePerson}) => { //destructuring is happening directly in the brackets
 const aboutList = about.map(about =>{
