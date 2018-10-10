@@ -17,12 +17,21 @@ class App extends Component {
        about: newArray
      });
   }
+  deletePerson = (id) => {
+    let people = this.state.about.filter(person => {
+      return person.id !== id; //if this returns true the new person will remain in the new array
+    });
+    this.setState({
+      about: people
+    });
+    
+  }
   render() {
     return (
       <div className="App">
         <h1>My React app!</h1>
         <p>Welcome</p>
-        <AboutRose about={this.state.about}/>
+        <AboutRose deletePerson={this.deletePerson} about={this.state.about}/>
         <AddPerson addPerson={this.addPerson} />
       </div>
     );
