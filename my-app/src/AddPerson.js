@@ -13,7 +13,7 @@ class AddPerson extends Component {
     }
     handleSubmit = (event) => {
         event.preventDefault();
-        console.log(this.state);
+        this.props.addPerson(this.state); //this passes the user input from the child via the prop method up to the parameter person in the root component 
     }
     render(){
         return (
