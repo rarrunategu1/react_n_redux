@@ -12,14 +12,17 @@ class addTodo extends Component {
     }
     handleSubmit = (event) => {
         event.preventDefault();
-        console.log(this.state)
+        this.props.addTodo(this.state);
+        this.setState({
+            content: '' //this emptys the addtodo field after you hit submit
+        })
     }
     render(){
         return(
             <div>
             <form onSubmit={this.handleSubmit}>
             <label>Add new todo:</label>
-            <input type="text" onChange={this.handleChange} />
+            <input type="text" onChange={this.handleChange} value={this.state.content}/>
             </form>
             </div>
             )
