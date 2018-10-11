@@ -1,46 +1,26 @@
 import React, { Component } from 'react';
-import AboutRose from './AboutRose';
-import AddPerson from './AddPerson';
+import Todos from './Todos';
 
 class App extends Component {
   state = {
-    about : [
-      {name: 'Rose', age: 45, planet: 'Mars', id: 1},
-      {name: 'Jane', age: 56, planet: 'Jupiter', id: 2},
-      {name: 'Joe', age: 19, planet: 'Saturn', id: 3}
+    todos: [
+      {id: 1, content: 'go to work'},
+      {id: 2, content: 'code at CareerDevs'}
       ]
   }
-  addPerson = (person) => {
-     person.id = Math.random(); //giving the person an id
-     let newArray = [...this.state.about, person]; //stores the currently array with the new person
-     this.setState({  //sets the state of the array to the new array 
-       about: newArray
-     });
-  }
-  deletePerson = (id) => {
-    let people = this.state.about.filter(person => {
-      return person.id !== id; //if this returns true the new person will remain in the new array
+  deleteTodo = (id) => {
+    const todos = this.state.todos.filter(todo => {
+      return todo.id !== id
     });
     this.setState({
-      about: people
-    });
-    
-  }
-  componentDidMount(){ //fires when the component first mounts the dom
-    console.log("component mounted");
-  }
-  
-  componentDidUpdate(prevProps, prevState) {
-    console.log("component updated");
-    console.log(prevProps, prevState); //when update is done t shows the previous state and the current state in the console
+      todos: todos
+    })
   }
   render() {
-    return (
-      <div className="App">
-        <h1>My React app!</h1>
-        <p>Welcome</p>
-        <AboutRose deletePerson={this.deletePerson} about={this.state.about}/>
-        <AddPerson addPerson={this.addPerson} />
+    return(
+      <div className="todo-app container">)
+      <h1 className="center blue-text">Todo's</h1>
+      <Todos todos={this.state.todos} deleteTodo={this.deleteTodo} />
       </div>
     );
   }
