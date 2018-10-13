@@ -6,7 +6,8 @@ import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux'; //will provide our app with the store for interaction
 import rootReducer from './reducers/rootReducer';
-const store = createStore();
+
+const store = createStore(rootReducer);
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 
