@@ -1,23 +1,12 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 import CareerDevs from '../careerdevs.png';
+import { connect } from 'react-redux'; //a function to bring back a higher order component
 
 class Home extends Component { 
-    state = { //state would grab the json and output it to this template
-        posts: [ ]
-    }
-    componentDidMount() {
-     axios.get('https://jsonplaceholder.typicode.com/posts')
-     .then(res => {
-         console.log(res);
-         this.setState({
-             posts: res.data.slice(0,10) //will return just 10 of the post in the json object
-         });
-     });
-    }
     render () {
-        const { posts } = this.state;
+        console.log(this.props);
+        const { posts } = this.props;
         const postList = posts.length ? (
             posts.map(post => {
                 return (
@@ -29,8 +18,8 @@ class Home extends Component {
                     </div>
                     </div>
                     );
-                
-            })) : (
+                })
+                ) : (
             <div className = "center">No posts yet</div>
             );
         return (
@@ -42,4 +31,11 @@ class Home extends Component {
     }
 }
 
-export default Home;
+const mapStateToProps = (state) => {
+    return {
+        posts: state.posts
+    };
+};
+export default connect(mapStateToProps)(Home); //connect is invoking a higher order component that is wrapping the Home component
+
+
