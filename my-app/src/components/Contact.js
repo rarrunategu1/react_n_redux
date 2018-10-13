@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Contact = (props) => {
+const Contact = () => {
     //redirects contact page to about page in 2 seconds
-    setTimeout(() => {
-        props.history.push('/about');
-    }, 2000); 
+    // setTimeout(() => {
+    //     props.history.push('/about');
+    // }, 2000); 
     return (
         <div className="container">
         <h4 className="center">Contact</h4>
